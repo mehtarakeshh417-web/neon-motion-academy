@@ -1,0 +1,197 @@
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import CustomCursor from '@/components/CustomCursor';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import { Award, Users, Calendar, Star, Heart, Target, Sparkles } from 'lucide-react';
+import studioInterior from '@/assets/studio-interior.jpg';
+import heroDancer from '@/assets/hero-dancer.jpg';
+
+const stats = [
+  { icon: Users, value: '2000+', label: 'Students Trained' },
+  { icon: Award, value: '50+', label: 'Awards Won' },
+  { icon: Calendar, value: '15+', label: 'Years Experience' },
+  { icon: Star, value: '4.9', label: 'Rating' },
+];
+
+const values = [
+  {
+    icon: Heart,
+    title: 'Passion',
+    description: 'We believe dance is not just movement—it\'s an expression of the soul. Our passion drives everything we do.',
+  },
+  {
+    icon: Target,
+    title: 'Excellence',
+    description: 'We strive for excellence in every class, every performance, and every interaction with our dance family.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Innovation',
+    description: 'We blend traditional techniques with contemporary styles, creating unique experiences for every dancer.',
+  },
+];
+
+const About = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  return (
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <CustomCursor />
+      <Navbar />
+
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-20">
+        <motion.div
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5 }}
+          className="absolute inset-0"
+        >
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${heroDancer})` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/50" />
+        </motion.div>
+
+        <div className="relative z-10 container mx-auto px-6 text-center">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="inline-block px-4 py-2 text-xs font-medium tracking-[0.3em] uppercase glass rounded-full mb-6"
+          >
+            Our Story
+          </motion.span>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="kinetic-heading"
+          >
+            About <span className="gradient-text">Nennu's</span>
+          </motion.h1>
+        </div>
+      </section>
+
+      {/* Story Section */}
+      <section ref={ref} className="py-24 relative">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="font-display text-4xl md:text-5xl tracking-wider mb-6">
+                A Legacy of <span className="gradient-text">Excellence</span>
+              </h2>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  Founded with a vision to transform the dance education landscape in Texas, 
+                  Nennu's Dance Academy has become a beacon of artistic excellence and cultural 
+                  celebration. Our journey began over 15 years ago with a simple belief: everyone 
+                  has rhythm, and everyone can dance.
+                </p>
+                <p>
+                  Today, we stand proud as one of the most prestigious dance academies in the 
+                  state, having trained over 2,000 students who have gone on to perform on 
+                  national and international stages. Our state-of-the-art facilities and 
+                  world-class instructors create an environment where creativity flourishes.
+                </p>
+                <p>
+                  At Nennu's, we don't just teach dance—we inspire transformation. Our motto, 
+                  "Inspire and persevere to excel," reflects our commitment to nurturing not 
+                  just skilled dancers, but confident, expressive individuals who carry the 
+                  joy of dance throughout their lives.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="glass rounded-3xl overflow-hidden hover-lift cursor-hover">
+                <img
+                  src={studioInterior}
+                  alt="Our Studio"
+                  className="w-full h-[500px] object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-8 -left-8 glass rounded-2xl p-6 glow-primary">
+                <div className="font-display text-5xl gradient-text">15+</div>
+                <div className="text-sm uppercase tracking-wider text-muted-foreground">Years of Excellence</div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-24 bg-card relative">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-display text-4xl md:text-5xl tracking-wider">
+              Our <span className="gradient-text">Values</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {values.map((value, index) => (
+              <motion.div
+                key={value.title}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15 }}
+                className="glass rounded-3xl p-8 text-center hover-lift cursor-hover"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-gradient-brand flex items-center justify-center mx-auto mb-6">
+                  <value.icon size={28} />
+                </div>
+                <h3 className="font-display text-2xl tracking-wider mb-4">{value.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-24 relative">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="glass rounded-2xl p-8 text-center hover-lift cursor-hover group"
+              >
+                <stat.icon className="w-10 h-10 mx-auto mb-4 text-primary group-hover:scale-110 transition-transform" />
+                <div className="font-display text-4xl md:text-5xl gradient-text mb-2">{stat.value}</div>
+                <div className="text-xs uppercase tracking-wider text-muted-foreground">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default About;
