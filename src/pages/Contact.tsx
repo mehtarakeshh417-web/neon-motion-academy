@@ -3,12 +3,12 @@ import { motion, useInView } from 'framer-motion';
 import CustomCursor from '@/components/CustomCursor';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { MapPin, Phone, Mail, Send, Check, Clock, Calendar } from 'lucide-react';
+import { MapPin, Phone, Mail, Send, Check, Clock } from 'lucide-react';
 
 const contactInfo = [
-  { icon: MapPin, label: 'Visit Us', value: '123 Dance Avenue, Houston, TX 77001', href: null },
-  { icon: Phone, label: 'Call Us', value: '+1 (888) 123-4567', href: 'tel:+18881234567' },
-  { icon: Mail, label: 'Email Us', value: 'info@nennusdance.com', href: 'mailto:info@nennusdance.com' },
+  { icon: MapPin, label: 'Visit Us', value: '5580 Preston rd. #101 Frisco, TX 75034', href: null },
+  { icon: Phone, label: 'Call Us', value: '(469) 920 4602', href: 'tel:+14699204602' },
+  { icon: Mail, label: 'Email Us', value: 'neenu.klk@gmail.com', href: 'mailto:neenu.klk@gmail.com' },
 ];
 
 const operatingHours = [
@@ -88,57 +88,16 @@ const Contact = () => {
             >
               {/* Map */}
               <div className="relative glass rounded-3xl overflow-hidden h-[350px] cursor-hover hover-lift">
-                <div className="absolute inset-0 bg-gradient-to-br from-muted to-background" />
-                
-                {/* Texas Map SVG */}
-                <svg
-                  viewBox="0 0 400 400"
-                  className="absolute inset-0 w-full h-full p-10"
-                  fill="none"
-                  stroke="hsl(var(--primary))"
-                  strokeWidth="2"
-                >
-                  <path
-                    d="M180 60 L220 60 L250 80 L280 70 L310 90 L340 100 L360 140 L350 180 L340 220 L320 260 L280 300 L240 340 L200 350 L160 340 L120 300 L100 260 L80 220 L70 180 L80 140 L100 100 L140 80 Z"
-                    className="fill-muted/30"
-                  />
-                  <motion.circle
-                    cx="280"
-                    cy="280"
-                    r="10"
-                    className="fill-primary"
-                    animate={{ scale: [1, 1.3, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
-                  <motion.circle
-                    cx="280"
-                    cy="280"
-                    r="25"
-                    className="stroke-primary fill-none"
-                    strokeWidth="1"
-                    animate={{ scale: [1, 1.5], opacity: [1, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
-                  <motion.circle
-                    cx="280"
-                    cy="280"
-                    r="40"
-                    className="stroke-primary/50 fill-none"
-                    strokeWidth="1"
-                    animate={{ scale: [1, 1.8], opacity: [0.5, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
-                  />
-                </svg>
-
-                <div className="absolute bottom-6 left-6 right-6 glass rounded-xl p-4 flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-brand flex items-center justify-center flex-shrink-0">
-                    <MapPin size={20} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Nennu's Dance Academy</p>
-                    <p className="text-sm text-muted-foreground">123 Dance Avenue, Houston, TX 77001</p>
-                  </div>
-                </div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3343.5!2d-96.80403645130397!3d33.129294103166444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDA3JzQ1LjUiTiA5NsKwNDgnMTQuNSJX!5e0!3m2!1sen!2sus!4v1234567890"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="absolute inset-0"
+                />
               </div>
 
               {/* Contact Cards */}
@@ -250,6 +209,7 @@ const Contact = () => {
                       <option value="trial">Free Trial Class</option>
                       <option value="enrollment">Class Enrollment</option>
                       <option value="private">Private Lessons</option>
+                      <option value="costume">Costume Rental</option>
                       <option value="events">Events & Performances</option>
                       <option value="other">Other Inquiry</option>
                     </select>
@@ -316,7 +276,7 @@ const Contact = () => {
               { q: 'Do I need dance experience to join?', a: 'Not at all! We welcome dancers of all levels, from complete beginners to advanced performers.' },
               { q: 'What should I wear to class?', a: 'Comfortable, form-fitting clothing that allows you to move freely. Specific footwear depends on the dance style.' },
               { q: 'How do I book a free trial class?', a: 'Simply fill out the contact form above or call us directly. We\'ll schedule your trial at your convenience.' },
-              { q: 'Do you offer private lessons?', a: 'Yes! We offer one-on-one sessions with all our instructors for personalized learning.' },
+              { q: 'Do you offer costume rentals?', a: 'Yes! We have a large inventory of costumes for Bollywood, Indian Folk, Garba, Bhangra, and more. Rentals range from $10-$25.' },
             ].map((faq, index) => (
               <motion.div
                 key={index}

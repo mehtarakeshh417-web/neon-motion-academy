@@ -14,7 +14,7 @@ const Footer = () => {
   const quickLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-    { name: 'Classes', path: '/classes' },
+    { name: 'Services', path: '/services' },
     { name: 'Instructors', path: '/instructors' },
     { name: 'Contact', path: '/contact' },
   ];
@@ -28,7 +28,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="space-y-6">
-            <img src={logo} alt="Nennu's Dance Academy" className="h-16 w-auto" />
+            <img src={logo} alt="Nennu's Dance Academy" className="h-20 w-auto" />
             <p className="text-muted-foreground text-sm leading-relaxed">
               Inspire and persevere to excel. The premier dance academy in Texas, 
               nurturing talent since day one.
@@ -70,10 +70,10 @@ const Footer = () => {
           <div>
             <h4 className="font-display text-xl tracking-wider mb-6">Our Classes</h4>
             <ul className="space-y-3">
-              {['Hip-Hop', 'Contemporary', 'Classical', 'Ballet', 'Jazz'].map((cls) => (
+              {['Bollywood', 'Kathak', 'Bhangra', 'Zumba', 'Folk Dances'].map((cls) => (
                 <li key={cls}>
                   <Link
-                    to="/classes"
+                    to="/services"
                     className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm cursor-hover"
                   >
                     {cls}
@@ -90,19 +90,19 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-primary mt-1 flex-shrink-0" />
                 <span className="text-muted-foreground text-sm">
-                  123 Dance Avenue, Houston, Texas 77001
+                  5580 Preston rd. #101 Frisco, TX 75034
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-primary flex-shrink-0" />
-                <a href="tel:+18881234567" className="text-muted-foreground text-sm hover:text-primary transition-colors cursor-hover">
-                  +1 (888) 123-4567
+                <a href="tel:+14699204602" className="text-muted-foreground text-sm hover:text-primary transition-colors cursor-hover">
+                  (469) 920 4602
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-primary flex-shrink-0" />
-                <a href="mailto:info@nennusdance.com" className="text-muted-foreground text-sm hover:text-primary transition-colors cursor-hover">
-                  info@nennusdance.com
+                <a href="mailto:neenu.klk@gmail.com" className="text-muted-foreground text-sm hover:text-primary transition-colors cursor-hover">
+                  neenu.klk@gmail.com
                 </a>
               </li>
             </ul>

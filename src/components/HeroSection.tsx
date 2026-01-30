@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ChevronDown, Play } from 'lucide-react';
-import heroDancer from '@/assets/hero-dancer.jpg';
+const heroDancer = "https://res.cloudinary.com/dncupgwgb/image/upload/v1769411481/ChatGPT_Image_Jan_26_2026_12_37_47_PM_sl7umg.png";
 
 const HeroSection = () => {
   return (
@@ -44,8 +44,8 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="kinetic-heading mb-6"
         >
-          <span className="block">Dance</span>
-          <span className="block gradient-text">Without Limits</span>
+          <span className="block gradient-text">Nennu's Dance</span>
+          <span className="block">Academy</span>
         </motion.h1>
 
         <motion.p
