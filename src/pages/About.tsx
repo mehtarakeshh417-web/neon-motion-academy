@@ -4,8 +4,9 @@ import CustomCursor from '@/components/CustomCursor';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Award, Users, Calendar, Star, Heart, Target, Sparkles } from 'lucide-react';
-import studioInterior from '@/assets/studio-interior.jpg';
-import heroDancer from '@/assets/hero-dancer.jpg';
+
+const aboutImage = "https://res.cloudinary.com/dncupgwgb/image/upload/v1769798452/535227480_18051217700560329_5112356557988542656_n_gvtoi2.jpg";
+const heroDancer = "https://res.cloudinary.com/dncupgwgb/image/upload/v1769411481/ChatGPT_Image_Jan_26_2026_12_37_47_PM_sl7umg.png";
 
 const stats = [
   { icon: Users, value: '2000+', label: 'Students Trained' },
@@ -90,22 +91,22 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Founded with a vision to transform the dance education landscape in Texas, 
-                  Nennu's Dance Academy has become a beacon of artistic excellence and cultural 
-                  celebration. Our journey began over 15 years ago with a simple belief: everyone 
-                  has rhythm, and everyone can dance.
+                  Nennu Sharma is founder, director choreographer at Nennu's dance academy.
                 </p>
                 <p>
-                  Today, we stand proud as one of the most prestigious dance academies in the 
-                  state, having trained over 2,000 students who have gone on to perform on 
-                  national and international stages. Our state-of-the-art facilities and 
-                  world-class instructors create an environment where creativity flourishes.
+                  At Nennu's academy, our vision is to educate, to build confidence and self-esteem, 
+                  so the individual student can accomplish our goals. We encourage children of all 
+                  levels to uplift by giving feedback to assess what need to work in positive progress 
+                  and to make it easy for students to discover their potential and be expectant for 
+                  growth in classes and work for every age from toddlers to seniors.
                 </p>
                 <p>
-                  At Nennu's, we don't just teach dance—we inspire transformation. Our motto, 
-                  "Inspire and persevere to excel," reflects our commitment to nurturing not 
-                  just skilled dancers, but confident, expressive individuals who carry the 
-                  joy of dance throughout their lives.
+                  Nennu's Dance Academy has an experienced faculty who are passionate and trained 
+                  to create an atmosphere of joy, acceptance and dedication within the dance studio.
+                </p>
+                <p>
+                  Our students have grown in dance and performance skills, self confidence, physical 
+                  health, self motivation and collaboration skills.
                 </p>
               </div>
             </motion.div>
@@ -118,7 +119,7 @@ const About = () => {
             >
               <div className="glass rounded-3xl overflow-hidden hover-lift cursor-hover">
                 <img
-                  src={studioInterior}
+                  src={aboutImage}
                   alt="Our Studio"
                   className="w-full h-[500px] object-cover"
                 />

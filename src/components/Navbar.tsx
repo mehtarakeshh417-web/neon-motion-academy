@@ -7,7 +7,7 @@ import logo from '@/assets/logo.jpg';
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
-  { name: 'Classes', path: '/classes' },
+  { name: 'Services', path: '/services' },
   { name: 'Instructors', path: '/instructors' },
   { name: 'Contact', path: '/contact' },
 ];
@@ -40,7 +40,7 @@ const Navbar = () => {
           <motion.img
             src={logo}
             alt="Nennu's Dance Academy"
-            className="h-12 w-auto"
+            className="h-20 w-auto"
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 400 }}
           />

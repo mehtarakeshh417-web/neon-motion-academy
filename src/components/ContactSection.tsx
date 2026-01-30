@@ -15,7 +15,6 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
     setIsSubmitted(true);
     setTimeout(() => {
       setIsSubmitted(false);
@@ -49,59 +48,26 @@ const ContactSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-8"
           >
-            {/* Stylized Texas Map */}
+            {/* Google Map */}
             <div className="relative glass rounded-3xl overflow-hidden h-[300px] cursor-hover">
-              {/* Map Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-muted to-background" />
-              
-              {/* Texas Outline (simplified SVG) */}
-              <svg
-                viewBox="0 0 400 400"
-                className="absolute inset-0 w-full h-full p-8"
-                fill="none"
-                stroke="hsl(var(--primary))"
-                strokeWidth="2"
-              >
-                <path
-                  d="M180 60 L220 60 L250 80 L280 70 L310 90 L340 100 L360 140 L350 180 L340 220 L320 260 L280 300 L240 340 L200 350 L160 340 L120 300 L100 260 L80 220 L70 180 L80 140 L100 100 L140 80 Z"
-                  className="fill-muted/30"
-                />
-                {/* Houston marker */}
-                <motion.circle
-                  cx="280"
-                  cy="280"
-                  r="8"
-                  className="fill-primary"
-                  animate={{ scale: [1, 1.3, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-                <motion.circle
-                  cx="280"
-                  cy="280"
-                  r="20"
-                  className="stroke-primary fill-none"
-                  strokeWidth="1"
-                  animate={{ scale: [1, 1.5], opacity: [1, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-              </svg>
-
-              {/* Location Label */}
-              <div className="absolute bottom-6 left-6 glass rounded-xl px-4 py-3 flex items-center gap-3">
-                <MapPin className="text-primary" size={20} />
-                <div>
-                  <p className="font-medium text-sm">Houston, Texas</p>
-                  <p className="text-xs text-muted-foreground">123 Dance Avenue</p>
-                </div>
-              </div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3343.5!2d-96.80403645130397!3d33.129294103166444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDA3JzQ1LjUiTiA5NsKwNDgnMTQuNSJX!5e0!3m2!1sen!2sus!4v1234567890"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="absolute inset-0"
+              />
             </div>
 
             {/* Contact Info Cards */}
             <div className="grid gap-4">
               {[
-                { icon: MapPin, label: 'Visit Us', value: '123 Dance Avenue, Houston, TX 77001' },
-                { icon: Phone, label: 'Call Us', value: '+1 (888) 123-4567' },
-                { icon: Mail, label: 'Email Us', value: 'info@nennusdance.com' },
+                { icon: MapPin, label: 'Visit Us', value: '5580 Preston rd. #101 Frisco, TX 75034' },
+                { icon: Phone, label: 'Call Us', value: '(469) 920 4602' },
+                { icon: Mail, label: 'Email Us', value: 'neenu.klk@gmail.com' },
               ].map((item, index) => (
                 <motion.div
                   key={item.label}

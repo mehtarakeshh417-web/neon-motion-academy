@@ -2,16 +2,18 @@ import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Clock, Users, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import hiphopDancer from '@/assets/hiphop-dancer.jpg';
-import contemporaryDancer from '@/assets/contemporary-dancer.jpg';
-import classicalDancer from '@/assets/classical-dancer.jpg';
+
+const bollywoodImage = "https://res.cloudinary.com/dncupgwgb/image/upload/v1769412299/484975682_667662669117184_3424837219811799355_n_mw79fa.jpg";
+const kathakImage = "https://res.cloudinary.com/dncupgwgb/image/upload/v1769411981/f7813bbd-6411-43b4-8bae-40dccc027c99.png";
+const bhangraImage = "https://res.cloudinary.com/dncupgwgb/image/upload/v1769412216/484306386_665305262686258_4502363489410499043_n_qlyajv.jpg";
+const folkImage = "https://res.cloudinary.com/dncupgwgb/image/upload/v1769412155/484374994_665302069353244_6440850370147422592_n_jvt2qk.jpg";
 
 const classes = [
   {
     id: 1,
-    title: 'Hip-Hop',
-    description: 'High-energy street dance with urban flair. Master the latest moves, grooves, and styles that dominate the dance scene.',
-    image: hiphopDancer,
+    title: 'Bollywood',
+    description: 'High-energy Bollywood dance combining traditional Indian movements with modern choreography. Perfect for all ages and skill levels.',
+    image: bollywoodImage,
     duration: '60 min',
     level: 'All Levels',
     intensity: 'High',
@@ -19,23 +21,33 @@ const classes = [
   },
   {
     id: 2,
-    title: 'Contemporary',
-    description: 'Expressive, fluid movements that blend ballet, modern, and jazz. Perfect for those seeking artistic expression through dance.',
-    image: contemporaryDancer,
+    title: 'Kathak',
+    description: 'Classical North Indian dance form featuring intricate footwork, graceful spins, and expressive storytelling through movement.',
+    image: kathakImage,
     duration: '75 min',
-    level: 'Intermediate',
+    level: 'All Levels',
     intensity: 'Medium',
     color: 'from-neon-purple to-neon-magenta',
   },
   {
     id: 3,
-    title: 'Classical',
-    description: 'Traditional Indian dance forms including Bharatanatyam and Kathak. Experience the rich cultural heritage through graceful movements.',
-    image: classicalDancer,
-    duration: '90 min',
+    title: 'Bhangra',
+    description: 'Energetic Punjabi folk dance with powerful movements, vibrant rhythms, and infectious energy that will get everyone moving.',
+    image: bhangraImage,
+    duration: '60 min',
+    level: 'All Levels',
+    intensity: 'High',
+    color: 'from-neon-magenta to-neon-coral',
+  },
+  {
+    id: 4,
+    title: 'Folk Dances',
+    description: 'Traditional Indian folk dances from various regions including Garba, Raas, and other cultural dance forms.',
+    image: folkImage,
+    duration: '60 min',
     level: 'All Levels',
     intensity: 'Medium',
-    color: 'from-neon-magenta to-neon-coral',
+    color: 'from-neon-coral to-neon-blue',
   },
 ];
 
@@ -161,7 +173,7 @@ const ClassesSection = () => {
                       </div>
 
                       <Link
-                        to="/classes"
+                        to="/services"
                         className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-brand rounded-full font-semibold uppercase tracking-wider text-sm w-fit hover:shadow-[0_0_30px_hsl(300_90%_55%_/_0.5)] transition-all cursor-hover"
                       >
                         Learn More
