@@ -15,20 +15,26 @@ const Footer = () => {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
+    { name: 'Gallery', path: '/gallery' },
     { name: 'Instructors', path: '/instructors' },
     { name: 'Contact', path: '/contact' },
   ];
 
   return (
     <footer className="relative bg-card border-t border-border overflow-hidden">
-      {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none" />
       
       <div className="container mx-auto px-6 py-16 relative z-10">
         <div className="grid md:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="space-y-6">
-            <img src={logo} alt="Nennu's Dance Academy" className="h-20 w-auto" />
+            <div className="flex items-center gap-3">
+              <img src={logo} alt="Nennu's Dance Academy" className="h-14 w-14 rounded-full object-cover border-2 border-primary/30" />
+              <div>
+                <span className="font-display text-lg tracking-wider block">Nennu's</span>
+                <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Dance Academy</span>
+              </div>
+            </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Inspire and persevere to excel. The premier dance academy in Texas, 
               nurturing talent since day one.
@@ -90,7 +96,13 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-primary mt-1 flex-shrink-0" />
                 <span className="text-muted-foreground text-sm">
-                  5580 Preston rd. #101 Frisco, TX 75034
+                  Preston and Lebanon Crossing, Frisco
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <MapPin size={18} className="text-primary mt-1 flex-shrink-0" />
+                <span className="text-muted-foreground text-sm">
+                  FM 423 & Rockhill Parkway, Little Elm
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -115,8 +127,8 @@ const Footer = () => {
             © 2026 Nennu's Dance Academy. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-primary transition-colors cursor-hover">Privacy Policy</a>
-            <a href="#" className="hover:text-primary transition-colors cursor-hover">Terms of Service</a>
+            <Link to="/policies" className="hover:text-primary transition-colors cursor-hover">Privacy Policy</Link>
+            <Link to="/policies" className="hover:text-primary transition-colors cursor-hover">Terms of Service</Link>
           </div>
         </div>
       </div>

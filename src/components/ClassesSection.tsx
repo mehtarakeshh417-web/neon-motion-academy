@@ -1,5 +1,5 @@
-import { useState, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { useState, useRef, useEffect } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Clock, Users, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -17,7 +17,6 @@ const classes = [
     duration: '60 min',
     level: 'All Levels',
     intensity: 'High',
-    color: 'from-neon-blue to-neon-purple',
   },
   {
     id: 2,
@@ -27,7 +26,6 @@ const classes = [
     duration: '75 min',
     level: 'All Levels',
     intensity: 'Medium',
-    color: 'from-neon-purple to-neon-magenta',
   },
   {
     id: 3,
@@ -37,7 +35,6 @@ const classes = [
     duration: '60 min',
     level: 'All Levels',
     intensity: 'High',
-    color: 'from-neon-magenta to-neon-coral',
   },
   {
     id: 4,
@@ -47,7 +44,6 @@ const classes = [
     duration: '60 min',
     level: 'All Levels',
     intensity: 'Medium',
-    color: 'from-neon-coral to-neon-blue',
   },
 ];
 
@@ -64,22 +60,33 @@ const ClassesSection = () => {
     setActiveIndex((prev) => (prev - 1 + classes.length) % classes.length);
   };
 
+  // Auto-advance
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const activeClass = classes[activeIndex];
+
   return (
     <section ref={ref} className="py-24 relative overflow-hidden">
-      {/* Dynamic Background based on active class */}
-      <motion.div
-        key={activeIndex}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="absolute inset-0"
-      >
-        <div
-          className="absolute inset-0 bg-cover bg-center blur-3xl opacity-20"
-          style={{ backgroundImage: `url(${classes[activeIndex].image})` }}
-        />
-        <div className="absolute inset-0 bg-background/90" />
-      </motion.div>
+      {/* Dynamic Background */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeIndex}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8 }}
+          className="absolute inset-0"
+        >
+          <div
+            className="absolute inset-0 bg-cover bg-center blur-3xl opacity-20 scale-110"
+            style={{ backgroundImage: `url(${activeClass.image})` }}
+          />
+          <div className="absolute inset-0 bg-background/90" />
+        </motion.div>
+      </AnimatePresence>
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
@@ -113,93 +120,92 @@ const ClassesSection = () => {
           </div>
         </motion.div>
 
-        {/* Classes Slider */}
-        <div className="relative">
-          <div className="flex gap-6 overflow-hidden">
-            {classes.map((cls, index) => (
-              <motion.div
-                key={cls.id}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{
-                  opacity: index === activeIndex ? 1 : 0.5,
-                  scale: index === activeIndex ? 1 : 0.9,
-                  x: `${(index - activeIndex) * 100}%`,
-                }}
-                transition={{ duration: 0.6, ease: 'easeOut' }}
-                className={`flex-shrink-0 w-full md:w-2/3 ${
-                  index === activeIndex ? 'z-10' : 'z-0'
-                }`}
-              >
-                <div className="glass rounded-3xl overflow-hidden group cursor-hover">
-                  <div className="grid md:grid-cols-2 gap-0">
-                    {/* Image */}
-                    <div className="relative h-80 md:h-[500px] overflow-hidden">
-                      <motion.img
-                        src={cls.image}
-                        alt={cls.title}
-                        className="absolute inset-0 w-full h-full object-cover"
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.7 }}
-                      />
-                      <div className={`absolute inset-0 bg-gradient-to-t ${cls.color} opacity-30 mix-blend-overlay`} />
-                    </div>
+        {/* Active Class Display */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeIndex}
+            initial={{ opacity: 0, x: 80 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -80 }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            className="glass rounded-3xl overflow-hidden cursor-hover"
+          >
+            <div className="grid md:grid-cols-2 gap-0">
+              {/* Image */}
+              <div className="relative h-80 md:h-[500px] overflow-hidden">
+                <img
+                  src={activeClass.image}
+                  alt={activeClass.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background/40" />
+              </div>
 
-                    {/* Content */}
-                    <div className="p-8 md:p-12 flex flex-col justify-center">
-                      <motion.h3
-                        className="font-display text-4xl md:text-5xl tracking-wider mb-4"
-                        layoutId={`title-${cls.id}`}
-                      >
-                        {cls.title}
-                      </motion.h3>
-                      <p className="text-muted-foreground mb-8 leading-relaxed">
-                        {cls.description}
-                      </p>
+              {/* Content */}
+              <div className="p-8 md:p-12 flex flex-col justify-center">
+                <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="font-display text-4xl md:text-5xl tracking-wider mb-4"
+                >
+                  {activeClass.title}
+                </motion.h3>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="text-muted-foreground mb-8 leading-relaxed"
+                >
+                  {activeClass.description}
+                </motion.p>
 
-                      {/* Meta Info */}
-                      <div className="flex flex-wrap gap-4 mb-8">
-                        <div className="flex items-center gap-2 text-sm">
-                          <Clock size={16} className="text-primary" />
-                          <span>{cls.duration}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm">
-                          <Users size={16} className="text-primary" />
-                          <span>{cls.level}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm">
-                          <Zap size={16} className="text-primary" />
-                          <span>{cls.intensity}</span>
-                        </div>
-                      </div>
-
-                      <Link
-                        to="/services"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-brand rounded-full font-semibold uppercase tracking-wider text-sm w-fit hover:shadow-[0_0_30px_hsl(300_90%_55%_/_0.5)] transition-all cursor-hover"
-                      >
-                        Learn More
-                        <ArrowRight size={16} />
-                      </Link>
-                    </div>
+                {/* Meta Info */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="flex flex-wrap gap-4 mb-8"
+                >
+                  <div className="flex items-center gap-2 text-sm glass rounded-full px-4 py-2">
+                    <Clock size={16} className="text-primary" />
+                    <span>{activeClass.duration}</span>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                  <div className="flex items-center gap-2 text-sm glass rounded-full px-4 py-2">
+                    <Users size={16} className="text-primary" />
+                    <span>{activeClass.level}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm glass rounded-full px-4 py-2">
+                    <Zap size={16} className="text-primary" />
+                    <span>{activeClass.intensity}</span>
+                  </div>
+                </motion.div>
 
-          {/* Pagination Dots */}
-          <div className="flex justify-center gap-3 mt-8">
-            {classes.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 cursor-hover ${
-                  index === activeIndex
-                    ? 'w-8 bg-gradient-brand'
-                    : 'bg-muted hover:bg-muted-foreground'
-                }`}
-              />
-            ))}
-          </div>
+                <Link
+                  to="/services"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-brand rounded-full font-semibold uppercase tracking-wider text-sm w-fit hover:shadow-[0_0_30px_hsl(300_90%_55%_/_0.5)] transition-all cursor-hover"
+                >
+                  Learn More
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Pagination Dots */}
+        <div className="flex justify-center gap-3 mt-8">
+          {classes.map((cls, index) => (
+            <button
+              key={cls.id}
+              onClick={() => setActiveIndex(index)}
+              className={`h-3 rounded-full transition-all duration-300 cursor-hover ${
+                index === activeIndex
+                  ? 'w-8 bg-gradient-brand'
+                  : 'w-3 bg-muted hover:bg-muted-foreground'
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>
