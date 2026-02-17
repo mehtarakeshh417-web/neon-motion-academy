@@ -65,7 +65,8 @@ const ContactSection = () => {
             {/* Contact Info Cards */}
             <div className="grid gap-4">
               {[
-                { icon: MapPin, label: 'Visit Us', value: '5580 Preston rd. #101 Frisco, TX 75034' },
+                { icon: MapPin, label: 'Frisco', value: 'Preston and Lebanon Crossing, Frisco' },
+                { icon: MapPin, label: 'Little Elm', value: 'FM 423 & Rockhill Parkway, Little Elm' },
                 { icon: Phone, label: 'Call Us', value: '(469) 920 4602' },
                 { icon: Mail, label: 'Email Us', value: 'neenu.klk@gmail.com' },
               ].map((item, index) => (

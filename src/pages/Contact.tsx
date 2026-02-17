@@ -5,8 +5,12 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { MapPin, Phone, Mail, Send, Check, Clock } from 'lucide-react';
 
+const locations = [
+  { name: 'Frisco', address: 'Preston and Lebanon Crossing, Frisco' },
+  { name: 'Little Elm', address: 'FM 423 & Rockhill Parkway, Little Elm' },
+];
+
 const contactInfo = [
-  { icon: MapPin, label: 'Visit Us', value: '5580 Preston rd. #101 Frisco, TX 75034', href: null },
   { icon: Phone, label: 'Call Us', value: '(469) 920 4602', href: 'tel:+14699204602' },
   { icon: Mail, label: 'Email Us', value: 'neenu.klk@gmail.com', href: 'mailto:neenu.klk@gmail.com' },
 ];
@@ -46,7 +50,6 @@ const Contact = () => {
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/10 via-transparent to-transparent" />
-        
         <div className="relative z-10 container mx-auto px-6 text-center">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -100,6 +103,27 @@ const Contact = () => {
                 />
               </div>
 
+              {/* Locations */}
+              <div className="grid gap-4">
+                {locations.map((loc, index) => (
+                  <motion.div
+                    key={loc.name}
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                    className="glass rounded-xl p-5 flex items-center gap-4 hover-lift cursor-hover"
+                  >
+                    <div className="w-14 h-14 rounded-xl bg-gradient-brand flex items-center justify-center flex-shrink-0">
+                      <MapPin size={24} />
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">{loc.name}</p>
+                      <p className="font-medium">{loc.address}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
               {/* Contact Cards */}
               <div className="grid gap-4">
                 {contactInfo.map((item, index) => (
@@ -107,7 +131,7 @@ const Contact = () => {
                     key={item.label}
                     initial={{ opacity: 0, x: -30 }}
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                    transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
                     className="glass rounded-xl p-5 flex items-center gap-4 hover-lift cursor-hover"
                   >
                     <div className="w-14 h-14 rounded-xl bg-gradient-brand flex items-center justify-center flex-shrink-0">
@@ -115,13 +139,9 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">{item.label}</p>
-                      {item.href ? (
-                        <a href={item.href} className="font-medium hover:text-primary transition-colors">
-                          {item.value}
-                        </a>
-                      ) : (
-                        <p className="font-medium">{item.value}</p>
-                      )}
+                      <a href={item.href} className="font-medium hover:text-primary transition-colors">
+                        {item.value}
+                      </a>
                     </div>
                   </motion.div>
                 ))}
@@ -131,7 +151,7 @@ const Contact = () => {
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.5 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
                 className="glass rounded-2xl p-6"
               >
                 <div className="flex items-center gap-3 mb-4">
@@ -210,6 +230,7 @@ const Contact = () => {
                       <option value="enrollment">Class Enrollment</option>
                       <option value="private">Private Lessons</option>
                       <option value="costume">Costume Rental</option>
+                      <option value="wedding">Wedding Choreography</option>
                       <option value="events">Events & Performances</option>
                       <option value="other">Other Inquiry</option>
                     </select>

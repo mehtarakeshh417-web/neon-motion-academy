@@ -72,7 +72,7 @@ const InstructorsSection = () => {
                 Nennu Arora
               </h3>
               <p className="text-primary text-sm font-medium uppercase tracking-wider mb-2">
-                Kathak & Bollywood Dance Expert
+                Founder & Artistic Director
               </p>
               <p className="text-muted-foreground text-sm">
                 Founder, Director & Choreographer

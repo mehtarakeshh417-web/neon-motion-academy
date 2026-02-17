@@ -77,8 +77,30 @@ const About = () => {
         </div>
       </section>
 
-      {/* Story Section */}
-      <section ref={ref} className="py-24 relative">
+      {/* Our Focus Section */}
+      <section className="py-24 relative">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="font-display text-4xl md:text-5xl tracking-wider mb-8">
+                Our <span className="gradient-text">Focus</span>
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                At Nennu's Dance Academy, we train kids to dance with confidence, creativity, and joy.
+                We focus on technique, expression, and stage readiness, while making every class fun, engaging, and inspiring.
+                Our goal is to nurture talented, confident performers who shine on every stage.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Nennu Arora Section */}
+      <section ref={ref} className="py-24 bg-card relative">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
             <motion.div
@@ -87,26 +109,38 @@ const About = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="font-display text-4xl md:text-5xl tracking-wider mb-6">
-                A Legacy of <span className="gradient-text">Excellence</span>
+                About <span className="gradient-text">Nennu Arora</span>
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Nennu Sharma is founder, director choreographer at Nennu's dance academy.
+                  Nennu Arora is the Founder & Artistic Director of NDA Dallas – Nennu's Dance Academy, 
+                  a premier dance institution in the DFW area with thriving locations in Dallas–Plano, 
+                  Frisco, and Little Elm.
                 </p>
                 <p>
-                  At Nennu's academy, our vision is to educate, to build confidence and self-esteem, 
-                  so the individual student can accomplish our goals. We encourage children of all 
-                  levels to uplift by giving feedback to assess what need to work in positive progress 
-                  and to make it easy for students to discover their potential and be expectant for 
-                  growth in classes and work for every age from toddlers to seniors.
+                  A trained Kathak, Bollywood, and Indian folk dancer, Nennu brings over a decade of 
+                  teaching, choreography, and leadership experience to her academy. Her curriculum focuses 
+                  on technique, rhythm, expression, confidence, and stage presence, helping students grow 
+                  as dancers and performers.
                 </p>
                 <p>
-                  Nennu's Dance Academy has an experienced faculty who are passionate and trained 
-                  to create an atmosphere of joy, acceptance and dedication within the dance studio.
+                  Nennu's professional journey includes choreographing for Bollywood films and music videos 
+                  and collaborating with celebrities such as Govinda, Kartik Aaryan, Nora Fatehi, 
+                  Urvashi Rautela, Huma Qureshi, R. Madhavan, Sonu Nigam, Javed Ali, Mika Singh, 
+                  Chunky Pandey, Mallika Sherawat, Atif Aslam, Sunidhi Chauhan, Shankar–Ehsaan–Loy, 
+                  Shehnaaz Gill, Manisha Koirala, Gurdas Maan, and Shibani Kashyap.
                 </p>
                 <p>
-                  Our students have grown in dance and performance skills, self confidence, physical 
-                  health, self motivation and collaboration skills.
+                  Beyond performances, she has served as a Creative Director for an Indian television 
+                  channel, bringing her artistic vision to a global audience.
+                </p>
+                <p>
+                  Through NDA, Nennu has trained thousands of students, judged prestigious competitions, 
+                  and produced celebrated stage shows, making Nennu's Dance Academy a trusted and 
+                  respected name in the dance community.
+                </p>
+                <p className="text-primary font-medium">
+                  Email: danceforlife763@gmail.com
                 </p>
               </div>
             </motion.div>
@@ -120,7 +154,7 @@ const About = () => {
               <div className="glass rounded-3xl overflow-hidden hover-lift cursor-hover">
                 <img
                   src={aboutImage}
-                  alt="Our Studio"
+                  alt="Nennu Arora"
                   className="w-full h-[500px] object-cover"
                 />
               </div>
@@ -134,7 +168,7 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-24 bg-card relative">
+      <section className="py-24 relative">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -169,7 +203,7 @@ const About = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-24 relative">
+      <section className="py-24 bg-card relative">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {stats.map((stat, index) => (

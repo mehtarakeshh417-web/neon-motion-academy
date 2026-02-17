@@ -8,6 +8,7 @@ const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
   { name: 'Services', path: '/services' },
+  { name: 'Gallery', path: '/gallery' },
   { name: 'Instructors', path: '/instructors' },
   { name: 'Contact', path: '/contact' },
 ];
@@ -31,23 +32,32 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'glass py-3' : 'bg-transparent py-6'
+        scrolled ? 'glass py-2' : 'bg-transparent py-4'
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 cursor-hover">
-          <motion.img
-            src={logo}
-            alt="Nennu's Dance Academy"
-            className="h-20 w-auto"
+          <motion.div
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 400 }}
-          />
+            className="relative"
+          >
+            <img
+              src={logo}
+              alt="Nennu's Dance Academy"
+              className="h-14 w-14 rounded-full object-cover border-2 border-primary/30 shadow-[0_0_15px_hsl(300_90%_55%_/_0.3)]"
+            />
+            <div className="absolute inset-0 rounded-full ring-1 ring-primary/20" />
+          </motion.div>
+          <div className="hidden sm:block">
+            <span className="font-display text-lg tracking-wider leading-tight block">Nennu's</span>
+            <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Dance Academy</span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -73,7 +83,7 @@ const Navbar = () => {
         {/* CTA Button */}
         <Link
           to="/contact"
-          className="hidden md:block px-6 py-2.5 text-sm font-semibold uppercase tracking-wider glass glass-hover rounded-full gradient-border cursor-hover"
+          className="hidden lg:block px-6 py-2.5 text-sm font-semibold uppercase tracking-wider glass glass-hover rounded-full gradient-border cursor-hover"
         >
           Book Now
         </Link>
@@ -81,7 +91,7 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 cursor-hover"
+          className="lg:hidden p-2 cursor-hover"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -95,7 +105,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden glass mt-4 mx-4 rounded-2xl overflow-hidden"
+            className="lg:hidden glass mt-4 mx-4 rounded-2xl overflow-hidden"
           >
             <div className="p-6 flex flex-col gap-4">
               {navLinks.map((link, index) => (
@@ -121,7 +131,7 @@ const Navbar = () => {
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 }}
+                transition={{ delay: 0.6 }}
               >
                 <Link
                   to="/contact"
