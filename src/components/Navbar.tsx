@@ -10,6 +10,7 @@ const navLinks = [
   { name: 'Services', path: '/services' },
   { name: 'Gallery', path: '/gallery' },
   { name: 'Instructors', path: '/instructors' },
+  { name: 'Policies', path: '/policies' },
   { name: 'Contact', path: '/contact' },
 ];
 
