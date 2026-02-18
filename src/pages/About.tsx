@@ -89,11 +89,11 @@ const About = () => {
               <h2 className="font-display text-4xl md:text-5xl tracking-wider mb-8">
                 Our <span className="gradient-text">Focus</span>
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                At Nennu's Dance Academy, we train kids to dance with confidence, creativity, and joy.
-                We focus on technique, expression, and stage readiness, while making every class fun, engaging, and inspiring.
-                Our goal is to nurture talented, confident performers who shine on every stage.
-              </p>
+              <div className="space-y-4 text-lg text-muted-foreground leading-relaxed text-left md:text-center">
+                <p>At Nennu's Dance Academy, we train kids to dance with confidence, creativity, and joy.</p>
+                <p>We focus on technique, expression, and stage readiness, while making every class fun, engaging, and inspiring.</p>
+                <p>Our goal is to nurture talented, confident performers who shine on every stage.</p>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -138,9 +138,6 @@ const About = () => {
                   Through NDA, Nennu has trained thousands of students, judged prestigious competitions, 
                   and produced celebrated stage shows, making Nennu's Dance Academy a trusted and 
                   respected name in the dance community.
-                </p>
-                <p className="text-primary font-medium">
-                  Email: danceforlife763@gmail.com
                 </p>
               </div>
             </motion.div>
