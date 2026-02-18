@@ -1,9 +1,13 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ChevronDown, Play } from 'lucide-react';
+import { ChevronDown, Play, X } from 'lucide-react';
 const heroDancer = "https://res.cloudinary.com/dncupgwgb/image/upload/v1769411481/ChatGPT_Image_Jan_26_2026_12_37_47_PM_sl7umg.png";
+const storyVideoUrl = "https://res.cloudinary.com/dnqht9dkd/video/upload/v1771389766/My_Movie_1_xhda6e.mov";
 
 const HeroSection = () => {
+  const [videoOpen, setVideoOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Parallax */}
@@ -70,7 +74,10 @@ const HeroSection = () => {
           >
             Explore Classes
           </Link>
-          <button className="group flex items-center gap-3 px-8 py-4 glass glass-hover rounded-full font-semibold uppercase tracking-wider text-sm cursor-hover">
+          <button
+            onClick={() => setVideoOpen(true)}
+            className="group flex items-center gap-3 px-8 py-4 glass glass-hover rounded-full font-semibold uppercase tracking-wider text-sm cursor-hover"
+          >
             <span className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
               <Play size={16} fill="currentColor" />
             </span>
@@ -78,6 +85,26 @@ const HeroSection = () => {
           </button>
         </motion.div>
       </div>
+
+      {/* Video Modal */}
+      {videoOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm" onClick={() => setVideoOpen(false)}>
+          <div className="relative w-full max-w-3xl mx-4" onClick={e => e.stopPropagation()}>
+            <button
+              onClick={() => setVideoOpen(false)}
+              className="absolute -top-10 right-0 text-white hover:text-primary transition-colors"
+            >
+              <X size={28} />
+            </button>
+            <video
+              src={storyVideoUrl}
+              controls
+              autoPlay
+              className="w-full rounded-xl shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
 
       {/* Scroll Indicator */}
       <motion.div
