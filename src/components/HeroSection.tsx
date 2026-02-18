@@ -65,7 +65,7 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Link
-            to="/classes"
+            to="/services"
             className="group px-8 py-4 bg-gradient-brand rounded-full font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:shadow-[0_0_30px_hsl(300_90%_55%_/_0.5)] cursor-hover"
           >
             Explore Classes
