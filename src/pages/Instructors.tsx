@@ -107,7 +107,7 @@ const Instructors = () => {
                   Founder, Director & Choreographer
                 </span>
                 <h2 className="font-display text-4xl md:text-5xl tracking-wider mb-2">Nennu Arora</h2>
-                <p className="text-primary text-lg font-medium uppercase tracking-wider mb-6">Founder & Artistic Director</p>
+                <p className="text-primary text-lg font-medium uppercase tracking-wider mb-6">Artistic Director</p>
                 <p className="text-muted-foreground leading-relaxed mb-8">
                   Nennu Sharma is the founder, director and choreographer at Nennu's Dance Academy. 
                   With over 15 years of experience in Indian classical and Bollywood dance forms, 

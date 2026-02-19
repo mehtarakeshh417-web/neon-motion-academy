@@ -12,7 +12,7 @@ const stats = [
   { icon: Users, value: '2000+', label: 'Students Trained' },
   { icon: Award, value: '50+', label: 'Awards Won' },
   { icon: Calendar, value: '15+', label: 'Years Experience' },
-  { icon: Star, value: '4.9', label: 'Rating' },
+  { icon: Star, value: '5', label: 'Rating' },
 ];
 
 const values = [

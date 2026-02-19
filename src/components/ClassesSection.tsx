@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, Clock, Users, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const bollywoodImage = "https://res.cloudinary.com/dncupgwgb/image/upload/v1769412299/484975682_667662669117184_3424837219811799355_n_mw79fa.jpg";
-const kathakImage = "https://res.cloudinary.com/dncupgwgb/image/upload/v1769411981/f7813bbd-6411-43b4-8bae-40dccc027c99.png";
+const kathakImage = "https://res.cloudinary.com/dnqht9dkd/image/upload/v1771480733/IMG_2471_wzotf0.jpg";
 const bhangraImage = "https://res.cloudinary.com/dncupgwgb/image/upload/v1769412216/484306386_665305262686258_4502363489410499043_n_qlyajv.jpg";
 const folkImage = "https://res.cloudinary.com/dncupgwgb/image/upload/v1769412155/484374994_665302069353244_6440850370147422592_n_jvt2qk.jpg";
 
