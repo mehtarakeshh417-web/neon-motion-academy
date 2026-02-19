@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 import { Clock, Users, Zap, ArrowRight, Calendar, DollarSign, Shirt, Heart, Briefcase, Star, Sun, Music, Sparkles } from 'lucide-react';
 
 const bollywoodImage = "https://res.cloudinary.com/dncupgwgb/image/upload/v1769412299/484975682_667662669117184_3424837219811799355_n_mw79fa.jpg";
-const kathakImage = "https://res.cloudinary.com/dncupgwgb/image/upload/v1769411981/f7813bbd-6411-43b4-8bae-40dccc027c99.png";
+const kathakImage = "https://res.cloudinary.com/dnqht9dkd/image/upload/v1771480733/IMG_2471_wzotf0.jpg";
 const bhangraImage = "https://res.cloudinary.com/dncupgwgb/image/upload/v1769412216/484306386_665305262686258_4502363489410499043_n_qlyajv.jpg";
 const folkImage = "https://res.cloudinary.com/dncupgwgb/image/upload/v1769412155/484374994_665302069353244_6440850370147422592_n_jvt2qk.jpg";
 const costumeImage = "https://res.cloudinary.com/dncupgwgb/image/upload/v1769798840/484831744_665301646019953_4372690100554318105_n_ybkvs5.jpg";
@@ -23,7 +23,7 @@ const allClasses = [
     level: 'All Levels',
     intensity: 'High',
     schedule: 'Mon, Wed, Fri',
-    price: '$25/class',
+    price: 'Starts from $15',
     color: 'from-neon-blue to-neon-purple',
   },
   {
@@ -36,7 +36,7 @@ const allClasses = [
     level: 'All Levels',
     intensity: 'Medium',
     schedule: 'Tue, Thu, Sat',
-    price: '$30/class',
+    price: 'Starts from $15',
     color: 'from-neon-purple to-neon-magenta',
   },
   {
@@ -49,7 +49,7 @@ const allClasses = [
     level: 'All Levels',
     intensity: 'High',
     schedule: 'Wed, Sat, Sun',
-    price: '$25/class',
+    price: 'Starts from $15',
     color: 'from-neon-magenta to-neon-coral',
   },
   {
@@ -62,7 +62,7 @@ const allClasses = [
     level: 'All Levels',
     intensity: 'Medium',
     schedule: 'Mon, Thu, Sat',
-    price: '$25/class',
+    price: 'Starts from $15',
     color: 'from-neon-coral to-neon-blue',
   },
 ];
@@ -255,72 +255,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Costume Rental Section */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <span className="inline-block px-4 py-2 text-xs font-medium tracking-[0.3em] uppercase glass rounded-full mb-4">
-              <Shirt size={14} className="inline mr-2" />
-              Additional Service
-            </span>
-            <h2 className="font-display text-4xl md:text-6xl tracking-wider">
-              Dance Costume <span className="gradient-text">Rental</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="glass rounded-3xl overflow-hidden hover-lift cursor-hover">
-                <img src={costumeImage} alt="Dance Costumes" className="w-full h-[400px] object-cover" />
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Are you looking for Bollywood costume rentals for your next theme party wedding, 
-                event or dance performance?
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                We have a large inventory of costumes for dance performances ranging from Bollywood, 
-                Indian Folk, Garba/Raas, Bhangra, Indo-Western, Contemporary, Lyrical, and Hip-Hop. 
-                Our stage props are also available for rent.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Our rental inventory is continuously being updated. For our latest collections, contact us!
-              </p>
-              <div className="glass rounded-2xl p-6">
-                <h4 className="font-display text-xl tracking-wider mb-3">Pricing</h4>
-                <p className="text-muted-foreground text-sm">
-                  Costume rental fees range from <span className="text-primary font-semibold">$10 – $25</span> per costume. 
-                  Shipping is additional. Please allow sufficient time for shipping from Dallas, Texas.
-                </p>
-              </div>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-brand rounded-full font-semibold uppercase tracking-wider text-sm hover:shadow-[0_0_30px_hsl(300_90%_55%_/_0.5)] transition-all cursor-hover"
-              >
-                Inquire Now
-                <ArrowRight size={16} />
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-24 relative overflow-hidden bg-card">

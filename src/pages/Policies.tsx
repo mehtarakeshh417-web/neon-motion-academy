@@ -92,6 +92,14 @@ const sections = [
       'Additional performance/event fees may apply and will be communicated in advance.',
     ],
   },
+  {
+    title: 'J. Notice & Fee Policy',
+    items: [
+      'If a student does not wish to continue classes, a one-month notice is required.',
+      'Failure to provide one-month notice will result in a penalty of half a month\'s fee.',
+      'Fees must be paid in advance before the 7th of every month.',
+    ],
+  },
 ];
 
 const Policies = () => {

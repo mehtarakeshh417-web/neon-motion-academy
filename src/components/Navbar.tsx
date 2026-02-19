@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import logo from '@/assets/logo.jpg';
+const logo = "https://res.cloudinary.com/dnqht9dkd/image/upload/v1771480470/Avartan_logo_new_4_god2ce.png";
 
 const navLinks = [
   { name: 'Home', path: '/' },

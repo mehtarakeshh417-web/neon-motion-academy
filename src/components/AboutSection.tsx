@@ -10,7 +10,7 @@ const stats = [
   { icon: Users, value: '2000+', label: 'Students' },
   { icon: Award, value: '50+', label: 'Awards' },
   { icon: Calendar, value: '15+', label: 'Years' },
-  { icon: Star, value: '4.9', label: 'Rating' },
+  { icon: Star, value: '5', label: 'Rating' },
 ];
 
 const AboutSection = () => {
