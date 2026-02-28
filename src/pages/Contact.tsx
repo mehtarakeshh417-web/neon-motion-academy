@@ -255,22 +255,21 @@ const Contact = () => {
 
                 <div>
                   <label className="block text-sm font-medium mb-2">Subject *</label>
-                    <select
-                      value={formState.subject}
-                      onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
-                      required
-                      className="w-full px-4 py-3 bg-muted/50 border border-border rounded-xl focus:outline-none focus:border-primary transition-colors"
-                    >
-                      <option value="">Select a topic</option>
-                      <option value="trial">Free Trial Class</option>
-                      <option value="enrollment">Class Enrollment</option>
-                      <option value="private">Private Lessons</option>
-                      <option value="costume">Costume Rental</option>
-                      <option value="wedding">Wedding Choreography</option>
-                      <option value="events">Events & Performances</option>
-                      <option value="other">Other Inquiry</option>
-                    </select>
-                  </div>
+                  <select
+                    value={formState.subject}
+                    onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
+                    required
+                    className="w-full px-4 py-3 bg-muted/50 border border-border rounded-xl focus:outline-none focus:border-primary transition-colors"
+                  >
+                    <option value="">Select a topic</option>
+                    <option value="trial">Free Trial Class</option>
+                    <option value="enrollment">Class Enrollment</option>
+                    <option value="private">Private Lessons</option>
+                    <option value="costume">Costume Rental</option>
+                    <option value="wedding">Wedding Choreography</option>
+                    <option value="events">Events & Performances</option>
+                    <option value="other">Other Inquiry</option>
+                  </select>
                 </div>
 
                 <div>
