@@ -177,7 +177,7 @@ const Contact = () => {
             >
               <form onSubmit={handleSubmit} className="glass rounded-3xl p-8 md:p-10 space-y-6">
                 <div className="text-center mb-8">
-                  <h3 className="font-display text-3xl tracking-wider mb-2">Send Us a Message</h3>
+                  <h3 className="font-display text-3xl tracking-wider mb-2">Register Now</h3>
                   <p className="text-muted-foreground text-sm">Fill out the form below and we'll get back to you within 24 hours.</p>
                 </div>
 
