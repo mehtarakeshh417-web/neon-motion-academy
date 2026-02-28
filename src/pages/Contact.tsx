@@ -12,7 +12,7 @@ const locations = [
 
 const contactInfo = [
   { icon: Phone, label: 'Call Us', value: '(469) 920 4602', href: 'tel:+14699204602' },
-  { icon: Mail, label: 'Email Us', value: 'neenu.klk@gmail.com', href: 'mailto:neenu.klk@gmail.com' },
+  { icon: Mail, label: 'Email Us', value: 'danceforlife763@gmail.com', href: 'mailto:danceforlife763@gmail.com' },
 ];
 
 const operatingHours = [
@@ -28,18 +28,42 @@ const Contact = () => {
     name: '',
     email: '',
     phone: '',
+    age: '',
     subject: '',
     message: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormState({ name: '', email: '', phone: '', subject: '', message: '' });
-    }, 3000);
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'fd2069f5-e298-4ac9-a160-87343c761ddd',
+          name: formState.name,
+          email: formState.email,
+          phone: formState.phone,
+          age: formState.age,
+          subject: formState.subject,
+          message: formState.message,
+        }),
+      });
+      if (response.ok) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormState({ name: '', email: '', phone: '', age: '', subject: '', message: '' });
+        }, 3000);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -218,23 +242,34 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Subject *</label>
-                    <select
-                      value={formState.subject}
-                      onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
-                      required
+                    <label className="block text-sm font-medium mb-2">Age</label>
+                    <input
+                      type="number"
+                      value={formState.age}
+                      onChange={(e) => setFormState({ ...formState, age: e.target.value })}
                       className="w-full px-4 py-3 bg-muted/50 border border-border rounded-xl focus:outline-none focus:border-primary transition-colors"
-                    >
-                      <option value="">Select a topic</option>
-                      <option value="trial">Free Trial Class</option>
-                      <option value="enrollment">Class Enrollment</option>
-                      <option value="private">Private Lessons</option>
-                      <option value="costume">Costume Rental</option>
-                      <option value="wedding">Wedding Choreography</option>
-                      <option value="events">Events & Performances</option>
-                      <option value="other">Other Inquiry</option>
-                    </select>
+                      placeholder="Enter your age"
+                    />
                   </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">Subject *</label>
+                  <select
+                    value={formState.subject}
+                    onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
+                    required
+                    className="w-full px-4 py-3 bg-muted/50 border border-border rounded-xl focus:outline-none focus:border-primary transition-colors"
+                  >
+                    <option value="">Select a topic</option>
+                    <option value="trial">Free Trial Class</option>
+                    <option value="enrollment">Class Enrollment</option>
+                    <option value="private">Private Lessons</option>
+                    <option value="costume">Costume Rental</option>
+                    <option value="wedding">Wedding Choreography</option>
+                    <option value="events">Events & Performances</option>
+                    <option value="other">Other Inquiry</option>
+                  </select>
                 </div>
 
                 <div>
@@ -251,7 +286,7 @@ const Contact = () => {
 
                 <motion.button
                   type="submit"
-                  disabled={isSubmitted}
+                  disabled={isSubmitted || isSubmitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className={`w-full py-4 rounded-xl font-semibold uppercase tracking-wider text-sm flex items-center justify-center gap-2 transition-all cursor-hover ${

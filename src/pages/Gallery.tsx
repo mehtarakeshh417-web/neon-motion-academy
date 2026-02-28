@@ -6,6 +6,10 @@ import Footer from '@/components/Footer';
 import { X } from 'lucide-react';
 
 const photos = [
+  "https://res.cloudinary.com/dnqht9dkd/image/upload/v1772216322/IMG_3948_xm6uum.jpg",
+  "https://res.cloudinary.com/dnqht9dkd/image/upload/v1772216322/IMG_3950_o91kgz.jpg",
+  "https://res.cloudinary.com/dnqht9dkd/image/upload/v1772216322/IMG_3949_aceqmn.jpg",
+  "https://res.cloudinary.com/dnqht9dkd/image/upload/v1772216322/IMG_3947_l3l9vx.jpg",
   "https://res.cloudinary.com/dnqht9dkd/image/upload/v1771354258/cc2d4220-2934-4801-b6ec-1c56138eb20f_evu24p.jpg",
   "https://res.cloudinary.com/dnqht9dkd/image/upload/v1771354257/IMG_9888_ggiron.jpg",
   "https://res.cloudinary.com/dnqht9dkd/image/upload/v1771354260/IMG_3872_ts9a8e.jpg",
