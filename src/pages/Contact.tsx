@@ -12,7 +12,7 @@ const locations = [
 
 const contactInfo = [
   { icon: Phone, label: 'Call Us', value: '(469) 920 4602', href: 'tel:+14699204602' },
-  { icon: Mail, label: 'Email Us', value: 'neenu.klk@gmail.com', href: 'mailto:neenu.klk@gmail.com' },
+  { icon: Mail, label: 'Email Us', value: 'danceforlife763@gmail.com', href: 'mailto:danceforlife763@gmail.com' },
 ];
 
 const operatingHours = [
