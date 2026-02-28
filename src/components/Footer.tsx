@@ -29,7 +29,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <img src={logo} alt="Nennu's Dance Academy" className="h-14 w-14 rounded-full object-cover border-2 border-primary/30" />
+              <img src="https://res.cloudinary.com/dnqht9dkd/image/upload/v1771480470/Avartan_logo_new_4_god2ce.png" alt="Nennu's Dance Academy" className="h-14 w-14 rounded-full object-cover border-2 border-primary/30" />
               <div>
                 <span className="font-display text-lg tracking-wider block">Nennu's</span>
                 <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Dance Academy</span>
