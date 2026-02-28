@@ -267,8 +267,8 @@ const Contact = () => {
                     </>
                   ) : (
                     <>
-                      <Send size={18} />
-                      Send Message
+                    <Send size={18} />
+                    Register Now
                     </>
                   )}
                 </motion.button>
