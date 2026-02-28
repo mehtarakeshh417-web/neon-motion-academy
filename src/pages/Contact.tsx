@@ -242,7 +242,19 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Subject *</label>
+                    <label className="block text-sm font-medium mb-2">Age</label>
+                    <input
+                      type="number"
+                      value={formState.age}
+                      onChange={(e) => setFormState({ ...formState, age: e.target.value })}
+                      className="w-full px-4 py-3 bg-muted/50 border border-border rounded-xl focus:outline-none focus:border-primary transition-colors"
+                      placeholder="Enter your age"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">Subject *</label>
                     <select
                       value={formState.subject}
                       onChange={(e) => setFormState({ ...formState, subject: e.target.value })}

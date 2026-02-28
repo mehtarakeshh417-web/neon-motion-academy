@@ -52,7 +52,7 @@ const ContactSection = () => {
                 { icon: MapPin, label: 'Frisco', value: 'Preston and Lebanon Crossing, Frisco' },
                 { icon: MapPin, label: 'Little Elm', value: 'FM 423 & Rockhill Parkway, Little Elm' },
                 { icon: Phone, label: 'Call Us', value: '(469) 920 4602' },
-                { icon: Mail, label: 'Email Us', value: 'neenu.klk@gmail.com' },
+                { icon: Mail, label: 'Email Us', value: 'danceforlife763@gmail.com' },
               ].map((item, index) => (
                 <motion.div
                   key={item.label + item.value}
